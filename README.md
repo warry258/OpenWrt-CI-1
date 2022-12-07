@@ -1,8 +1,8 @@
 # Openwrt云编译
 ### 来自仓库 https://github.com/hackyes/OpenWrt-CI
 #### 修改：
-####- openwrt.yml取消了.config，直接在运行代码里配置config
-####- lede.yml使用原.config配置
+#### openwrt.yml取消了.config，直接在运行代码里配置config
+#### lede.yml使用原.config配置
 
 #### 每天凌晨2点自动编译（未知）
 #### 大雕仓库 https://github.com/coolsnowwolf/lede
