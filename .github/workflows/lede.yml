@@ -10,23 +10,25 @@
 name: compile LEDE
 
 on:
-  push:
-    branches: 
-      - master
+  #push:
+  #  branches: 
+  #    - master
   #schedule:
   #  - cron: 0 0 1 * *
   watch:
-    types: started
+  #  types: started
+    workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
+#    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-      - name: 准备工作
-        uses: actions/checkout@master
-
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
       - name: 部署编译环境
         env:
           DEBIAN_FRONTEND: noninteractive
