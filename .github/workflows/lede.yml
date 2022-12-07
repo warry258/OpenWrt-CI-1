@@ -59,6 +59,7 @@ jobs:
       - name: 生成config内核编译
         run: |
           cp .config ./openwrt/.config
+          cd openwrt
           make defconfig
       - name: SSH 连接 Actions
         uses: P3TERX/ssh2actions@v1.0.0
