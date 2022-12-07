@@ -8,12 +8,11 @@
 #### 大雕仓库 https://github.com/coolsnowwolf/lede
 ## 使用说明：
 ### 1、lede.yml需要调用.config配置文件，.config生成方式如下
-#### 方式1：打开下面链接生成
-#### [https://hackyes.github.io/openwrt-menuconfig/index.html](https://hackyes.github.io/openwrt-menuconfig/index.html)
-#### 编辑 .config 文件，把内容清空替换成上面链接生成的配置内容
-#### 方式2：用其他方式生成，复制到.confi
+#### &ensp;&ensp;方式1：打开下面链接生成配置，把.config内容替换成链接生成的配置内容
+#### &ensp;&ensp;&ensp;&ensp;[https://hackyes.github.io/openwrt-menuconfig/index.html](https://hackyes.github.io/openwrt-menuconfig/index.html)
+#### &ensp;&ensp;方式2：用其他方式生成，复制到.config里
 ### 2、openwrt.yml取消了.config，直接在openwry.yml运行代码里替换相应内容配置config
-#### 等待编译成功后，到Actions里下载固件即可
+#### &ensp;&ensp;等待编译成功后，到Actions里下载固件即可
 ### 3、运行lede.yml：
 #### 在Run Workflow时把SSH connection to Actions的值改为true，在 Actions 日志页面等待执行到SSH connection to Actions步骤，会出现类似下面的信息：
 ```
