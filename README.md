@@ -1,6 +1,6 @@
 # Openwrt云编译
 #### 来自仓库 https://github.com/hackyes/OpenWrt-CI
-#### 每天凌晨2点自动编译（需掉前面的#）
+#### 每天凌晨2点自动编译（需去掉前面的#）
 ```
 #schedule:
 #  - cron: 0 2 * * *
