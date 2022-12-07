@@ -43,7 +43,7 @@ jobs:
           sudo -E apt-get clean
       - name: 下载lede源码到openwrt目录
         run: |
-          git clone https://github.com/kjrzxu/lede openwr
+          git clone https://github.com/kjrzxu/lede openwrt
       - name: 下载其他插件源码到package
         run: |
           cd openwrt
