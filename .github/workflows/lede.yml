@@ -17,7 +17,7 @@ on:
   #  - cron: 0 0 1 * *
   #watch:
   #  types: started
-  #workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
