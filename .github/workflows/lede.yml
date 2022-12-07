@@ -22,13 +22,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    if: github.event.repository.owner.id == github.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          
+      - name: 准备工作
+        uses: actions/checkout@v3
+
       - name: 部署编译环境
         env:
           DEBIAN_FRONTEND: noninteractive
