@@ -15,9 +15,9 @@ on:
   #    - master
   #schedule:
   #  - cron: 0 0 1 * *
-  watch:
+  #watch:
   #  types: started
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
