@@ -41,6 +41,11 @@ jobs:
           git clone https://github.com/kjrzxu/lede
           cp .config ./lede/.config
           mv ./lede/* ./
+      - name: 下载其他插件源码到package
+        run: |
+          git clone https://github.com/kenzok78/jeii  package/jeii
+          git clone https://github.com/kjrzxu/package-other package/package-other
+          git clone https://github.com/kjrzxu/helloworld package/helloworld
       - name: 升级安装feeds
         run: |
           ./scripts/feeds update -a
