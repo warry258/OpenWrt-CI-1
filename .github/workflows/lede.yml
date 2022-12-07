@@ -13,14 +13,14 @@ on:
   push:
     branches: 
       - master
-  #schedule:
-  #  - cron: 0 2 * * *
+  schedule:
+    - cron: 0 0 1 * *
   watch:
     types: started
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
