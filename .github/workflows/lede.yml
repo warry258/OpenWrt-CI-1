@@ -51,7 +51,7 @@ jobs:
       - name: 安装feeds
         run: |
           cd openwrt && ./scripts/feeds update -a
-      - name: 生成config内核编译
+      - name: 复制config内核编译
         run: |
           cp .config ./openwrt/.config
           cd openwrt
