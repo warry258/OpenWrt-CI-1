@@ -4,7 +4,11 @@
 #### openwrt.yml取消了.config，直接在运行代码里配置config
 #### lede.yml使用原.config配置
 
-#### 每天凌晨2点自动编译（未知）
+#### 每天凌晨2点自动编译（需掉前面的#）
+```
+  #schedule:
+  #  - cron: 0 2 * * *
+  ```
 #### 大雕仓库 https://github.com/coolsnowwolf/lede
 
 ### 把本仓库克隆到自己的仓库里
