@@ -16,6 +16,6 @@
 #### [https://hackyes.github.io/openwrt-menuconfig/index.html](https://hackyes.github.io/openwrt-menuconfig/index.html)
 #### ~~编辑 .config 文件，把内容清空替换成上面链接生成的配置内容~~
 #### 修改：取消了.config，直接在openwry.yml运行代码里替换相应内容配置config
-### 点这右上角 ✰Star  变成 ★Starred 就自动开始编译，在Actions里可查看编译情况及结果
+### 然后在Actions里选择运行
 
 ### 等待编译成功后，到Actions里下载固件即可
