@@ -1,0 +1,75 @@
+#
+# This is free software, lisence use MIT.
+# 
+# Copyright (C) 2019 P3TERX <https://p3terx.com>
+# Copyright (C) 2020 KFERMercer <KFER.Mercer@gmail.com>
+# 
+# <https://github.com/KFERMercer/OpenWrt-CI>
+#
+
+name: compile LEDE_hnat
+
+on:
+  push:
+    branches: 
+      - master
+  #schedule:
+  #  - cron: 0 0 1 * *
+  #watch:
+  #  types: started
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+      - name: 准备工作
+        uses: actions/checkout@master
+
+      - name: 部署编译环境
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo -E apt-get -yqq update
+          sudo -E apt-get -yqq install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+          sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get clean
+      - name: 下载lede源码复制config并移动到根目录
+        run: |
+          git clone https://github.com/kjrzxu/lede
+          cp .config ./lede/.config
+          mv ./lede/* ./
+      - name: 下载其他插件源码到package
+        run: |
+          git clone https://github.com/kenzok78/jeii  package/jeii
+          git clone https://github.com/kjrzxu/package-other package/package-other
+          git clone https://github.com/kjrzxu/helloworld package/helloworld
+      - name: 替换hnat配置文件
+        run: |
+          rm -rf ./target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
+          rm -rf ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+          cp ./package/package-other/LEDE-hnat-02network-dst/mt7621_hiwifi_hc5962.dts ./target/linux/ramips/dts
+          cp ./package/package-other/LEDE-hnat-02network-dst/02_network ./target/linux/ramips/mt7621/base-files/etc/board.d
+      - name: 升级安装feeds
+        run: |
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a
+      - name: 生成config内核编译
+        run: |
+          make defconfig
+      - name: 下载软件包
+        run: |
+          make download -j8
+          find dl -size -1024c -exec ls -l {} \;
+          find dl -size -1024c -exec rm -f {} \;
+      - name: 开始编译固件
+        run: |
+          echo -e "$(nproc) thread build."
+          make -j$(($(nproc) + 1)) V=s
+      - name : 上传bin文件夹(固件+ipk)到 github actions
+        uses: actions/upload-artifact@master
+        with:
+          name: OpenWrt_LEDE_hnat_firmware
+          path: bin/
