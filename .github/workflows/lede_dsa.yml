@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: compile LEDE
+name: compile LEDE_dsa
 
 on:
   push:
@@ -69,5 +69,5 @@ jobs:
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_LEDE_firmware
+          name: OpenWrt_LEDE_dsa_firmware
           path: bin/
