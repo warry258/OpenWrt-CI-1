@@ -18,14 +18,14 @@
 
 2、openwrt.yml取消了.config，直接在openwry.yml运行代码里替换相应内容配置config
 ## 运行lede.yml时关于SSH
-在Run Workflow时把SSH connection to Actions的值改为true，在 Actions 日志页面等待执行到SSH connection to Actions步骤，会出现类似下面的信息：
+~~在Run Workflow时把SSH connection to Actions的值改为true，在 Actions 日志页面等待执行到SSH connection to Actions步骤，会出现类似下面的信息：~~
 ```
 To connect to this session copy-n-paste the following into a terminal or browser:
 ssh Y26QeagDtsPXp2mT6me5cnMRd@nyc1.tmate.io
 https://tmate.io/t/Y26QeagDtsPXp2mT6me5cnMRd
 ```
-复制 SSH 连接命令粘贴到终端内执行，或者复制链接在浏览器中打开使用网页终端。（网页终端可能会遇到黑屏的情况，按 Ctrl+C 即可），输入：
+~~复制 SSH 连接命令粘贴到终端内执行，或者复制链接在浏览器中打开使用网页终端。（网页终端可能会遇到黑屏的情况，按 Ctrl+C 即可），输入：~~
 `cd openwrt && make menuconfig`
-完成后按Ctrl+D组合键或执行exit命令退出，后续编译工作将自动进行。
+~~完成后按Ctrl+D组合键或执行exit命令退出，后续编译工作将自动进行。~~
 
 等待编译成功后，到Actions里下载固件即可
