@@ -16,7 +16,7 @@
 
 &ensp;&ensp;方式2：用其他方式生成，复制到.config里
 2、openwrt.yml取消了.config，直接在openwry.yml运行代码里替换相应内容配置config
-# 运行lede.yml时关于SSH
+## 运行lede.yml时关于SSH
 在Run Workflow时把SSH connection to Actions的值改为true，在 Actions 日志页面等待执行到SSH connection to Actions步骤，会出现类似下面的信息：
 ```
 To connect to this session copy-n-paste the following into a terminal or browser:
