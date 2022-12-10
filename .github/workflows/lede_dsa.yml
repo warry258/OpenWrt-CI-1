@@ -68,4 +68,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt_LEDE_dsa_firmware
-          path: bin/
+          path: bin/targets
