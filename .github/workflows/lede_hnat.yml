@@ -38,35 +38,38 @@ jobs:
           libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
           mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
           rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
-      - name: 下载lede源码复制config并移动到根目录
-        run: |
-          git clone https://github.com/kjrzxu/lede
-          cp .config ./lede/.config
-          mv ./lede/* ./
+      - name: 下载lede源码
+        run: git clone https://github.com/kjrzxu/lede openwrt
       - name: 替换hnat配置文件
         run: |
-          rm -rf ./target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
-          rm -rf ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
-          cp ./package/package-other/LEDE-hnat-02network-dst/mt7621_hiwifi_hc5962.dts ./target/linux/ramips/dts
-          cp ./package/package-other/LEDE-hnat-02network-dst/02_network ./target/linux/ramips/mt7621/base-files/etc/board.d
+          cd openwrt
+          rm -rf target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
+          rm -rf target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+          cp ../build/LEDE-hnat-02network-dst/mt7621_hiwifi_hc5962.dts target/linux/ramips/dts
+          cp ../build/LEDE-hnat-02network-dst/02_network target/linux/ramips/mt7621/base-files/etc/board.d
       - name: 升级安装feeds
         run: |
+          cd openwrt
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: 生成config内核编译
         run: |
+          cd openwrt
+          cp ../config .config
           make defconfig
       - name: 下载软件包
         run: |
+          cd openwrt
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
       - name: 开始编译固件
         run: |
+          cd openwrt
           echo -e "$(nproc) thread build."
           make -j$(($(nproc) + 1)) V=s
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt_LEDE_hnat_firmware
-          path: bin/targets
+          path: openwrt/bin/targets
