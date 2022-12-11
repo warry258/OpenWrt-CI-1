@@ -1,2 +1,5 @@
 #修改feeds.conf.default
-sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/' openwrt/lede/target/linux/ramips/Makefile
+sed -i 's/fw876/kjrzxu/' openwrt/feeds.conf.default
+sed -i '/^#.*helloworld/s/^#//' openwrt/feeds.conf.default
+sed -i '/helloworld/a src-git package https://github.com/kjrzxu/package.git' openwrt/feeds.conf.default
+
