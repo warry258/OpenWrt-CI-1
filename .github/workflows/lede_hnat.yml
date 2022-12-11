@@ -40,6 +40,8 @@ jobs:
           rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
       - name: 下载lede源码
         run: git clone https://github.com/kjrzxu/lede openwrt
+#      - name: 修改源码
+#        run: chmod +x diy.sh && sh diy.sh
       - name: 替换hnat配置文件
         run: |
           cd openwrt
