@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: compile lede_hnat
+name: compile LEDE_hnat
 
 on:
   push:
