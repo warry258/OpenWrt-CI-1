@@ -42,12 +42,12 @@ jobs:
           rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
       - name: 下载源码
         run: git clone https://github.com/kjrzxu/lede openwrt
-      - name: 缓存加速(7天内对应源码相同机型二次编译有效，每次只保留一个源码的缓存)
-        if: env.USE_CACHEWRTBUILD == 'true'
-        uses: klever1988/cachewrtbuild@main
-        with:
-          ccache: 'true'
-          prefix: ${{ github.workspace }}/openwrt
+#      - name: 缓存加速(7天内对应源码相同机型二次编译有效，每次只保留一个源码的缓存)
+#        if: env.USE_CACHEWRTBUILD == 'true'
+#        uses: klever1988/cachewrtbuild@main
+#        with:
+#          ccache: 'true'
+#          prefix: ${{ github.workspace }}/openwrt
 #      - name: 修改feeds.conf.default
 #        run: chmod +x diy-part1.sh && sh diy-part1.sh
       - name: 替换hnat配置文件
