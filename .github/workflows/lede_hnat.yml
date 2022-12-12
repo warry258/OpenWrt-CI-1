@@ -47,7 +47,7 @@ jobs:
       - name: 替换ramips
         run: |
           rm -rf openwrt/target/linux/ramips
-          cp build/ramips openwrt/target/linux
+          cp -r build/ramips openwrt/target/linux
       - name: 替换hnat配置文件
         run: |
           rm -rf openwrt/target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
