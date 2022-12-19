@@ -42,6 +42,10 @@ jobs:
         run: git clone https://github.com/kjrzxu/lede openwrt
 #      - name: 修改feeds.conf.default
 #        run: chmod +x diy-part1.sh && sh diy-part1.sh
+      - name: 替换autosamba
+        run: |
+          rm -rf openwrt/package/lean/autosamba
+          cp -r build/autosamba openwrt/package/lean
       - name: 升级安装feeds
         run: |
           cd openwrt
