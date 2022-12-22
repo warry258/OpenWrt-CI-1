@@ -1,3 +1,6 @@
+#!/bin/sh
+
+
 #更改内核版本5.4为5.10
 sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/' openwrt/target/linux/ramips/Makefile
 
