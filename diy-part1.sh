@@ -9,4 +9,4 @@ sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/files/20-smb
 
 #修改automount
 rm -rf openwrt/package/lean/automount/files/15-automount
-cp build/15-automount openwrt/package/lean/automount/files
+cp -r build/15-automount openwrt/package/lean/automount/files
