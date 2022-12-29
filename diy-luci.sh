@@ -12,7 +12,7 @@ sed -i 's/_("Diagnostics"/_("网络诊断"/' openwrt/feeds/luci/modules/luci-mod
 sed -i 's/page.order = 60/page.order = 41/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
 
 sed -i 's/_("Scheduled Tasks"), 46/_("Scheduled Tasks"), 51/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
-sed -i 's/_("Backup / Flash Firmware"/_("备份升级"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
+sed -i 's#_("Backup / Flash Firmware"#_("备份升级"#' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 把bootstrap替换成argon为源码必选主题
