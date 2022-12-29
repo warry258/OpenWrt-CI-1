@@ -80,3 +80,6 @@ sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-wol/l
 
 sed -i 's/_("ZeroTier"), 99/"ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+
+#修改配置文件
+sed -i 's/0666/0777/' openwrt/package/lean/autosamba/files/20-smb
