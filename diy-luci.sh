@@ -20,14 +20,17 @@ sed -i 's/bootstrap/argon/ig' openwrt/feeds/luci/collections/luci/Makefile
 
 #修改插件名称并调整顺序
 sed -i 's/_("ShadowSocksR Plus+"/_("科学上网Plus"/' openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
+sed -i '101s/x86_64/x86_64||mipsel/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '127s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '161s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
 
 sed -i 's/_("Internet Access Schedule Control"/_("时间控制"/' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
-sed -i 's/"services"/"control"/' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
+sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
 
 sed -i 's/_("ADBYBY Plus +"/_("广告屏蔽Plus"/' openwrt/feeds/luci/applications/luci-app-adbyby-plus/luasrc/controller/adbyby.lua
 
 sed -i 's/_("AliyunDrive WebDAV"/_("阿里云盘"/' openwrt/feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/aliyundrive-webdav.lua
-sed -i 's/"services"/"nas"/' openwrt/feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/aliyundrive-webdav.lua
+sed -i 's/"services"/"nas"/g' openwrt/feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/aliyundrive-webdav.lua
 
 sed -i 's#"IP/MAC Binding"), 45#"MAC绑定"), 65#' openwrt/feeds/luci/applications/luci-app-arpbind/luasrc/controller/arpbind.lua
 
@@ -41,14 +44,14 @@ sed -i 's/_("Firewall"), 60/_("Firewall"), 35/' openwrt/feeds/luci/applications/
 sed -i 's/_("Guest-wifi"), 19/_("Guest-wifi"), 70/' openwrt/feeds/luci/applications/luci-app-guest-wifi/luasrc/controller/guest-wifi.lua
 
 sed -i 's/_("HDD Idle"), 60/_("HDD Idle"), 70/' openwrt/feeds/luci/applications/luci-app-hd-idle/luasrc/controller/hd_idle.lua
-sed -i 's/"services"/"nas"/' openwrt/feeds/luci/applications/luci-app-hd-idle/luasrc/controller/hd_idle.lua
+sed -i 's/"services"/"nas"/g' openwrt/feeds/luci/applications/luci-app-hd-idle/luasrc/controller/hd_idle.lua
 
 sed -i 's/_("omcproxy")/_("omcproxy"), 10/' openwrt/feeds/luci/applications/luci-app-omcproxy/luasrc/controller/omcproxy.lua
-sed -i 's/"services"/"iptv"/' openwrt/feeds/luci/applications/luci-app-omcproxy/luasrc/controller/omcproxy.lua
+sed -i 's/"services"/"iptv"/g' openwrt/feeds/luci/applications/luci-app-omcproxy/luasrc/controller/omcproxy.lua
 
-sed -i 's/"services"/"nas"/' openwrt/feeds/luci/applications/luci-app-samba/luasrc/controller/samba.lua
+sed -i 's/"services"/"nas"/g' openwrt/feeds/luci/applications/luci-app-samba/luasrc/controller/samba.lua
 
-sed -i 's/"services"/"nas"/' openwrt/feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
+sed -i 's/"services"/"nas"/g' openwrt/feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
 
 sed -i 's/"Socat"), 100/"端口转发"), 100/' openwrt/feeds/luci/applications/luci-app-socat/luasrc/controller/socat.lua
 
@@ -73,7 +76,7 @@ sed -i 's/_("FTP Server")/_("FTP服务器"), 80/' openwrt/feeds/luci/application
 
 sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
 
-sed -i 's/"services"/"control"/' openwrt/feeds/luci/applications/luci-app-wol/luasrc/controller/wol.lua
+sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-wol/luasrc/controller/wol.lua
 
 sed -i 's/_("ZeroTier"), 99/"ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
-sed -i 's/"vpn", "zerotier"/"services", "zerotier"/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
