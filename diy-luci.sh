@@ -75,6 +75,5 @@ sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-vsf
 
 sed -i 's/"services"/"control"/' openwrt/feeds/luci/applications/luci-app-wol/luasrc/controller/wol.lua
 
-sed -i 's/_("FTP Server")/_("FTP服务器"), 80/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
-
-#修改插件配置文件
+sed -i 's/_("ZeroTier"), 99/"ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+sed -i 's/"vpn",/"services",/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
