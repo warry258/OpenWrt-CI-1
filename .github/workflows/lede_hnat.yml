@@ -54,10 +54,10 @@ jobs:
           rm -rf openwrt/target/linux/ramips/mt7621/base-files/etc/board.d/02_network
           cp build/LEDE-hnat-02network-dst/mt7621_hiwifi_hc5962.dts openwrt/target/linux/ramips/dts
           cp build/LEDE-hnat-02network-dst/02_network openwrt/target/linux/ramips/mt7621/base-files/etc/board.d
-      - name: 替换samba
-        run: |
-          rm -rf openwrt/package/lean/autosamba
-          cp -r build/autosamba openwrt/package/lean
+#      - name: 替换samba
+#        run: |
+#          rm -rf openwrt/package/lean/autosamba
+#          cp -r build/autosamba openwrt/package/lean
       - name: 升级安装feeds
         run: |
           cd openwrt
