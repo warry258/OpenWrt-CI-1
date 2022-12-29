@@ -39,6 +39,7 @@ sed -i 's/_("BaiduPCS Web"), 300/_("百度网盘"), 20/' openwrt/feeds/luci/appl
 sed -i 's/_("Dynamic DNS"), 59/_("动态 DNS"), 105/' openwrt/feeds/luci/applications/luci-app-ddns/luasrc/controller/ddns.lua
 
 sed -i 's/_("EASY MESH"), 60/_("简单MESH"), 80/' openwrt/feeds/luci/applications/luci-app-easymesh/luasrc/controller/easymesh.lua
+
 sed -i 's/_("Firewall"), 60/_("Firewall"), 35/' openwrt/feeds/luci/applications/luci-app-firewall/luasrc/controller/firewall.lua
 
 sed -i 's/_("Guest-wifi"), 19/_("Guest-wifi"), 70/' openwrt/feeds/luci/applications/luci-app-guest-wifi/luasrc/controller/guest-wifi.lua
