@@ -6,10 +6,10 @@ sed -i '/"VPN"/s/$/\n/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/co
 sed -i '/"IPTV"/s/^/\t/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
 
 #修改界面主页分类和顺序
-sed -i 's/page.order = 30/page.order = 42/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
-sed -i 's/page.order = 50/page.order = 43/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
+sed -i 's/page.order  = 30/page.order  = 42/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
+sed -i '134s/50/43/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
 sed -i 's/_("Diagnostics"/_("网络诊断"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
-sed -i 's/page.order = 60/page.order = 41/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
+sed -i 's/page.order  = 60/page.order  = 41/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
 
 sed -i 's/_("Scheduled Tasks"), 46/_("Scheduled Tasks"), 51/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 sed -i 's#_("Backup / Flash Firmware"#_("备份升级"#' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
