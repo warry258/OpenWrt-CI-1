@@ -1,5 +1,5 @@
 	ipv6helper automount autosamba ddns-scripts_cloudflare.com-v4 xupnpd \
-	luci-theme-argonne luci-app-advanced luci-app-control-speedlimit luci-app-control-weburl \
+	luci-theme-argonne luci-app-advanced luci-app-control-speedlimit \
 	luci-app-fileassistant luci-app-iptvhelper luci-app-omcproxy luci-app-udpxy \
 	luci-app-adbyby-plus luci-app-diskman luci-app-easymesh luci-app-frpc \
 	luci-app-hd-idle luci-app-mwan3 luci-app-syncdial luci-app-ttyd luci-app-ramfree luci-app-uhttpd \
