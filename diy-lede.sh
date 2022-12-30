@@ -5,9 +5,9 @@ sed -i '/^#.*helloworld/s/^#//' openwrt/feeds.conf.default
 sed -i '/helloworld/a src-git package https://github.com/kjrzxu/package.git' openwrt/feeds.conf.default
 
 #修改autosamba
-sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/Makefile
-sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/files/20-smb
-sed -i 's/0666/0777/' openwrt/package/lean/autosamba/files/20-smb
+#sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/Makefile
+#sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/files/20-smb
+#sed -i 's/0666/0777/' openwrt/package/lean/autosamba/files/20-smb
 
 #替换automount
 #rm -rf openwrt/package/lean/automount/files/15-automount
