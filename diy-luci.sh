@@ -5,6 +5,11 @@ sed -i '/"VPN"/a entry({"admin", "iptv"}, firstchild(), _("IPTV"), 45).index = t
 sed -i '/"VPN"/s/$/\n/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
 sed -i '/"IPTV"/s/^/\t/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
 
+#添加界面主页Control分类和顺序
+sed -i '/"VPN"/a entry({"admin", "control"}, firstchild(), "Control", 44).index = true' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
+sed -i '/"VPN"/s/$/\n/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
+sed -i '/"IPTV"/s/^/\t/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
+
 #修改界面主页分类和顺序
 #sed -i 's/page.order  = 30/page.order  = 42/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
 #sed -i '134s/50/43/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
