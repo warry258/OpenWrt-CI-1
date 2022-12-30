@@ -15,6 +15,6 @@ sed -i 's/0666/0777/' openwrt/package/lean/autosamba/files/20-smb
 
 #修改默认插件
 sed -i 's/luci-app-filetransfer //' openwrt/include/target.mk
-#sed -i '/ca-certificates/s/$/ \\/' openwrt/include/target.mk
-#sed -i '/ca-certificates/s/$/\n/' openwrt/include/target.mk
-#sed -i '/ca-certificates/r build/target.txt' openwrt/include/target.mk
+sed -i '/ca-certificates/s/$/ \\/' openwrt/include/target.mk
+sed -i '/ca-certificates/s/$/\n/' openwrt/include/target.mk
+sed -i '/ca-certificates/r build/target.txt' openwrt/include/target.mk
