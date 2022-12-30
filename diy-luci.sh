@@ -90,3 +90,6 @@ sed -i 's/_("ZeroTier"), 99/"ZeroTier"), 120/' openwrt/feeds/luci/applications/l
 sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 
 #修改配置文件
+sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
+sed -i 's/0/1/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
+sed -i 's/10/5/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
