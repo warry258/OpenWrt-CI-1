@@ -73,7 +73,7 @@ sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-usb
 
 sed -i 's/_("KMS Server"), 100/_("KMS 激活"), 110/' openwrt/feeds/luci/applications/luci-app-vlmcsd/luasrc/controller/vlmcsd.lua
 
-sed -i 's/_("FTP Server")/_("FTP服务器"), 80/' openwrt/feeds/luci/applications/luci-app-vsftpd/luasrc/controller/vsftpd.lua
+sed -i 's/_("FTP Server")/_("FTP 服务"), 80/' openwrt/feeds/luci/applications/luci-app-vsftpd/luasrc/controller/vsftpd.lua
 
 sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-vsftpd/po/zh-cn/vsftpd.po
 
