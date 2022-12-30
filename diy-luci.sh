@@ -10,7 +10,7 @@ sed -i '/"VPN"/a entry({"admin", "control"}, firstchild(), "Control", 44).index 
 sed -i '/"VPN"/s/$/\n/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
 sed -i '/"IPTV"/s/^/\t/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/index.lua
 
-#修改界面主页分类和顺序
+#修改界面主页名称和顺序
 #sed -i 's/page.order  = 30/page.order  = 42/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
 #sed -i '134s/50/43/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
 #sed -i 's/_("Diagnostics"/_("网络诊断"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/network.lua
