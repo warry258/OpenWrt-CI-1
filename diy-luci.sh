@@ -25,9 +25,9 @@ sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admi
 
 #修改插件名称并调整顺序
 sed -i 's/_("ShadowSocksR Plus+"/_("科学上网"/' openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
-sed -i '101s/x86_64/x86_64||mipsel/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
-sed -i '127s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
-sed -i '161s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
+#sed -i '101s/x86_64/x86_64||mipsel/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
+#sed -i '127s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
+#sed -i '161s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
 
 sed -i 's/_("Internet Access Schedule Control"/_("时间控制"/' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
@@ -86,8 +86,8 @@ sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-vsf
 
 sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-wol/luasrc/controller/wol.lua
 
-sed -i 's/_("ZeroTier"), 99/"ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
-sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+#sed -i 's/_("ZeroTier"), 99/"ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+#sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
 
 #修改配置文件
 sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
