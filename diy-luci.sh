@@ -27,7 +27,7 @@ sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admi
 sed -i 's/_("ShadowSocksR Plus+"/_("科学上网"/' openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
 sed -i '101s/x86_64/x86_64||mipsel/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
 #sed -i '127s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
-#sed -i '161s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i '161s/n/y/' openwrt/feeds/helloworld/luci-app-ssr-plus/Makefile
 
 sed -i 's/_("Internet Access Schedule Control"/_("时间控制"/' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
 sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-accesscontrol/luasrc/controller/mia.lua
