@@ -94,5 +94,5 @@ sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luas
 
 #修改配置文件
 sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
-sed -i 's/0/1/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
 sed -i 's/10/5/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
+sed -i 's/0/1/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
