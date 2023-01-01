@@ -21,7 +21,7 @@ sed -i 's#_("Backup / Flash Firmware"#_("备份升级"#' openwrt/feeds/luci/modu
 sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 把bootstrap替换成argon为源码必选主题
-#sed -i 's/bootstrap/argon/ig' openwrt/feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/ig' openwrt/feeds/luci/collections/luci/Makefile
 
 #修改插件名称并调整顺序
 sed -i 's/_("ShadowSocksR Plus+"/_("科学上网"/' openwrt/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua
