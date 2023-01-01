@@ -31,7 +31,6 @@ CONFIG_DEFAULT_luci-app-omcproxy=y
 CONFIG_DEFAULT_luci-app-ramfree=y
 CONFIG_DEFAULT_luci-app-socat=y
 CONFIG_PACKAGE_luci-app-ssr-plus=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
 CONFIG_DEFAULT_luci-app-syncdial=y
 CONFIG_DEFAULT_luci-app-ttyd=y
