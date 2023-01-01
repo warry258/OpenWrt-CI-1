@@ -38,6 +38,8 @@ sed -i 's/_("ADBYBY Plus +"/_("广告屏蔽"/' openwrt/feeds/luci/applications/l
 sed -i 's/_("AliyunDrive WebDAV"/_("阿里云盘"/' openwrt/feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/aliyundrive-webdav.lua
 sed -i 's/"services"/"nas"/g' openwrt/feeds/luci/applications/luci-app-aliyundrive-webdav/luasrc/controller/aliyundrive-webdav.lua
 
+sed -i 's/_("Argon Config"/_("主题设置"/' openwrt/feeds/luci/applications/luci-app-argon-config/luasrc/controller/argon-config.lua
+
 sed -i 's#"IP/MAC Binding"), 45#"MAC绑定"), 65#' openwrt/feeds/luci/applications/luci-app-arpbind/luasrc/controller/arpbind.lua
 
 sed -i 's/_("BaiduPCS Web"), 300/_("百度网盘"), 20/' openwrt/feeds/luci/applications/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
