@@ -20,9 +20,6 @@ sed -i 's/_("Scheduled Tasks"), 46/_("Scheduled Tasks"), 51/' openwrt/feeds/luci
 sed -i 's#_("Backup / Flash Firmware"#_("备份升级"#' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
-# 删除原argon主题
-rm -rf openwrt/feeds/luci/themes/luci-theme-argon
-
 # 把bootstrap替换成argon为源码必选主题
 sed -i 's/bootstrap/argon/ig' openwrt/feeds/luci/collections/luci/Makefile
 
