@@ -62,6 +62,8 @@ jobs:
 #          cp -r build/autosamba openwrt/package/lean
       - name: 升级feeds
         run: cd openwrt && ./scripts/feeds update -a
+      - name: 升级feeds# 删除原argon主题
+        run: rm -rf openwrt/feeds/luci/themes/luci-theme-argon
       - name: 安装feeds
         run: cd openwrt && ./scripts/feeds install -a
       - name: 修改luci源码
