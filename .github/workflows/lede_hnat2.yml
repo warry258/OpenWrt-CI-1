@@ -62,10 +62,6 @@ jobs:
         run: cd openwrt && ./scripts/feeds install -a
       - name: 修改luci源码
         run: chmod +x diy-luci.sh && sh diy-luci.sh
-      - name: 修改cloudflare
-        run: |   
-          rm -rf openwrt/feeds/packages/net/ddns-scripts/files/update_cloudflare_com_v4.sh
-          cp build/update_cloudflare_com_v4.sh openwrt/feeds/packages/net/ddns-scripts/files
       - name: 生成config内核编译
         run: |
           cd openwrt
