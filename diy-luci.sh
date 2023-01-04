@@ -21,8 +21,8 @@ sed -i 's#_("Backup / Flash Firmware"#_("备份升级"#' openwrt/feeds/luci/modu
 sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 替换update_cloudflare_com_v4.sh
-rm -rf openwrt/feeds/packages/net/ddns-scripts/files/update_cloudflare_com_v4.sh
-cp build/update_cloudflare_com_v4.sh openwrt/feeds/packages/net/ddns-scripts/files
+#rm -rf openwrt/feeds/packages/net/ddns-scripts/files/update_cloudflare_com_v4.sh
+#cp build/update_cloudflare_com_v4.sh openwrt/feeds/packages/net/ddns-scripts/files
 
 # 替换原argon主题和argon-config主题设置
 rm -rf openwrt/feeds/luci/themes/luci-theme-argon
