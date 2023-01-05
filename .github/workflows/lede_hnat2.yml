@@ -49,15 +49,15 @@ jobs:
 #          rm -rf openwrt/target/linux/ramips
 #          cp -r build/ramips openwrt/target/linux
       - name: 修改lede源码
-        run: chmod +x patch/diy-lede.sh && sh patch/diy-lede.sh
+        run: chmod +x diy-lede.sh && sh diy-lede.sh
       - name: 替换hnat配置文件
-        run: chmod +x patch/diy-hnat.sh && sh patch/diy-hnat.sh
+        run: chmod +x diy-hnat.sh && sh diy-hnat.sh
       - name: 升级feeds
         run: cd openwrt && ./scripts/feeds update -a
       - name: 安装feeds
         run: cd openwrt && ./scripts/feeds install -a
       - name: 修改luci源码
-        run: chmod +x patch/diy-luci.sh && sh patch/diy-luci.sh
+        run: chmod +x diy-luci.sh && sh diy-luci.sh
       - name: 生成config内核编译
         run: |
           cd openwrt
