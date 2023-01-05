@@ -21,8 +21,8 @@ sed -i 's#_("Backup / Flash Firmware"#_("备份升级"#' openwrt/feeds/luci/modu
 sed -i 's/_("Reboot"/_("系统重启"/' openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 替换update_cloudflare_com_v4.sh
-rm -rf openwrt/feeds/packages/net/ddns-scriptsfiles/update_cloudflare_com_v4.sh
-cp files/update_cloudflare_com_v4.sh openwrt/feeds/packages/net/ddns-scriptsfiles
+rm -rf openwrt/feeds/packages/net/ddns-scripts/files/update_cloudflare_com_v4.sh
+cp files/update_cloudflare_com_v4.sh openwrt/feeds/packages/net/ddns-scripts/files
 
 # 替换原argon主题和argon-config主题设置
 rm -rf openwrt/feeds/luci/themes/luci-theme-argon
@@ -104,6 +104,6 @@ sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applica
 sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
 
 #修改配置文件
-sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idlefiles/hd-idle.config
-sed -i 's/10/5/' openwrt/feeds/packages/utils/hd-idlefiles/hd-idle.config
-sed -i 's/0/1/' openwrt/feeds/packages/utils/hd-idlefiles/hd-idle.config
+sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
+sed -i 's/10/5/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
+sed -i 's/0/1/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
