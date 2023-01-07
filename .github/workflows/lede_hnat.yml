@@ -56,8 +56,9 @@ jobs:
           cp files/LEDE-hnat-02network-dst/02_network openwrt/target/linux/ramips/mt7621/base-files/etc/board.d
       - name: 替换samba
         run: |
-          rm -rf openwrt/package/lean/autosamba
-          cp -r files/autosamba openwrt/package/lean
+          sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/Makefile
+          sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/files/20-smb
+          sed -i 's/0666/0777/' openwrt/package/lean/autosamba/files/20-smb
       - name: 升级安装feeds
         run: |
           cd openwrt
