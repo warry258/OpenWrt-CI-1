@@ -86,7 +86,7 @@ sed -i 's/_("uHTTPd")/_("WEB 管理"), 102/' openwrt/feeds/luci/applications/luc
 
 sed -i 's/_("Unblock Netease Music"), 50/_("网易歌曲"), 50/' openwrt/feeds/luci/applications/luci-app-unblockmusic/luasrc/controller/unblockmusic.lua
 
-sed -i 's/_("UPnP")/_("UPNP转发"), 101/' openwrt/feeds/luci/applications/luci-app-upnp/luasrc/controller/upnp.lua
+sed -i 's/_("UPnP")/_("UPnP转发"), 101/' openwrt/feeds/luci/applications/luci-app-upnp/luasrc/controller/upnp.lua
 
 sed -i 's/_("USB Printer Server"), 50/_("USB 打印"), 100/' openwrt/feeds/luci/applications/luci-app-usb-printer/luasrc/controller/usb_printer.lua
 sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-usb-printer/po/zh-cn/usb-printer.po
