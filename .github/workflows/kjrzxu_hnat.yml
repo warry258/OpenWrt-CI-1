@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: compile LEDE_hnat
+name: compile kjrzxu_hnat
 
 on:
   push:
@@ -82,5 +82,5 @@ jobs:
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_LEDE_hnat
+          name: OpenWrt_kjrzxu_hnat
           path: openwrt/bin/targets
