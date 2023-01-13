@@ -7,80 +7,72 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: OpenWrt_package_luci
+name: compile OpenWrt_package_luci
 
 on:
   push:
     branches: 
       - master
   #schedule:
-  #  - cron: 0 0 1 * *
-  #watch:
-  #  types: started
-  workflow_dispatch:
+  #  - cron: 0 2 * * *
+  watch:
+    types: started
 
 jobs:
-  files:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
       - name: 准备工作
         uses: actions/checkout@master
-#        with:
-#          fetch-depth: 0
 
       - name: 部署编译环境
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt update -y
-          sudo apt full-upgrade -y
-          sudo apt install -y ack antlr3 aria2 asciidoc autoconf automake autopoint binutils bison files-essential \
-          bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
-          git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
-          libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
-          mkisofs msmtp nano ninja-files p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
-          rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
-      - name: 下载源码
-        run: git clone https://github.com/kjrzxu/lede openwrt
-#      - name: 更改5.10内核
-#        run: sed -i '/USE_ELF_REL=y/a CONFIG_MT753X_GSW=y' openwrt/target/linux/ramips/mt7621/config-5.10
-#      - name: 替换ramips
-#        run: |
-#          rm -rf openwrt/target/linux/ramips
-#          cp -r files/ramips openwrt/target/linux
-      - name: 替换hnat配置文件
+          sudo -E apt-get -yqq update
+          sudo -E apt-get -yqq install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+          sudo -E apt-get -y autoremove --purge
+          sudo -E apt-get clean
+      - name: 下载lede源码并移动到根目录
         run: |
-          rm -rf openwrt/target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
-          rm -rf openwrt/target/linux/ramips/mt7621/base-files/etc/board.d/02_network
-          cp files/LEDE-hnat-02network-dst/mt7621_hiwifi_hc5962.dts openwrt/target/linux/ramips/dts
-          cp files/LEDE-hnat-02network-dst/02_network openwrt/target/linux/ramips/mt7621/base-files/etc/board.d
-      - name: 替换samba
+          git clone https://github.com/coolsnowwolf/lede
+          cp .config ./lede/.config
+          mv ./lede/* ./
+      - name: 下载其他插件源码到package
         run: |
-          sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/Makefile
-          sed -i 's/samba4/samba/g' openwrt/package/lean/autosamba/files/20-smb
-          sed -i 's/0666/0777/' openwrt/package/lean/autosamba/files/20-smb
+          git clone https://github.com/yichya/openwrt-cloudflared.git  package/openwrt-cloudflared
       - name: 升级安装feeds
         run: |
-          cd openwrt
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-      - name: 生成config内核编译
+      - name: 配置config文件
         run: |
-          cd openwrt
-          cp ../.config .config
+          rm -f ./.config*
+          touch ./.config
+          # 机型设置:
+          cat >> .config <<EOF
+          CONFIG_TARGET_ramips=y
+          CONFIG_TARGET_ramips_mt7621=y
+          CONFIG_TARGET_ramips_mt7621_DEVICE_hiwifi_hc5962=y
+          EOF
+          # 插件
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_openwrt-cloudflared=y
+          EOF
+          sed -i 's/^[ \\t]*//g' ./.config
           make defconfig
       - name: 下载软件包
         run: |
-          cd openwrt
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
       - name: 开始编译固件
         run: |
-          cd openwrt
-          echo -e "$(nproc) thread files."
-          make feeds/package/openwrt-cloudflared/compile V=99
+          echo -e "$(nproc) thread build."
+          make package/openwrt-cloudflared/compile V=99
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_package_luci
-          path: openwrt/bin
+          name: OpenWrt_-package_luci
+          path: bin/
