@@ -77,4 +77,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt_LEDE_hnat
-          path: openwrt/bin/targets
+          path: openwrt/bin
