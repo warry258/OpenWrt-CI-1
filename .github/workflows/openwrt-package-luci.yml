@@ -57,8 +57,8 @@ jobs:
           # 机型设置:
           cat >> .config <<EOF
           CONFIG_TARGET_ramips=y
-          CONFIG_TARGET_ramips_mt7621=y
-          CONFIG_TARGET_ramips_mt7621_DEVICE_hiwifi_hc5962=y
+           CONFIG_TARGET_ramips_mt7621=y
+           CONFIG_TARGET_ramips_mt7621_DEVICE_hiwifi_hc5962=y
           CONFIG_PACKAGE_luci-app-cloudflared=y
           EOF
           make defconfig
