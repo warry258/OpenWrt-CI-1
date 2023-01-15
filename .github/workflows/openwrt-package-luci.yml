@@ -43,7 +43,6 @@ jobs:
       - name: 下载lede源码并移动到根目录
         run: |
           git clone https://github.com/coolsnowwolf/lede
-          cp .config ./lede/.config
           mv ./lede/* ./
       - name: 下载其他插件源码到package
         run: |
@@ -54,19 +53,15 @@ jobs:
           ./scripts/feeds install -a
       - name: 配置config文件
         run: |
-          rm -f ./.config*
           touch ./.config
           # 机型设置:
           cat >> .config <<EOF
           CONFIG_TARGET_ramips=y
           CONFIG_TARGET_ramips_mt7621=y
           CONFIG_TARGET_ramips_mt7621_DEVICE_hiwifi_hc5962=y
-          EOF
           # 插件
-          cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-cloudflared=y
           EOF
-          sed -i 's/^[ \\t]*//g' ./.config
           make defconfig
       - name: 下载软件包
         run: |
