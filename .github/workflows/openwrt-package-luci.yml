@@ -47,7 +47,7 @@ jobs:
           mv ./lede/* ./
       - name: 下载其他插件源码到package
         run: |
-          git clone https://github.com/yichya/openwrt-cloudflared.git  package/openwrt-cloudflared
+          git clone https://github.com/kjrzxu/package.git  package/package
       - name: 升级安装feeds
         run: |
           ./scripts/feeds update -a
@@ -64,7 +64,7 @@ jobs:
           EOF
           # 插件
           cat >> .config <<EOF
-          CONFIG_PACKAGE_openwrt-cloudflared=y
+          CONFIG_PACKAGE_luci-app-cloudflared=y
           EOF
           sed -i 's/^[ \\t]*//g' ./.config
           make defconfig
@@ -75,7 +75,7 @@ jobs:
       - name: 开始编译固件
         run: |
           echo -e "$(nproc) thread build."
-          make package/openwrt-cloudflared/compile V=99
+          make package/package/luci-app-cloudflared/compile V=99
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
         with:
