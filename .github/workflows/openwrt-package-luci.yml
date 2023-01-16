@@ -63,6 +63,7 @@ jobs:
       - name: 开始编译固件
         run: |
           cd openwrt
+          echo -e "$(nproc) thread build."
           make package/feeds/package/luci-app-cloudflared/compile V=99
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
