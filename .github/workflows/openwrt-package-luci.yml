@@ -27,8 +27,6 @@ jobs:
     steps:
       - name: 准备工作
         uses: actions/checkout@master
-#        with:
-#          fetch-depth: 0
 
       - name: 部署编译环境
         run: |
@@ -40,38 +38,34 @@ jobs:
           libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
           mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
           rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
-      - name: 下载lede源码并移动到根目录
+      - name: 下载源码
+        run: git clone https://github.com/coolsnowwolf/lede openwrt
+      - name: 修改lede源码
+        run: chmod +x patch/diy-lede.sh && sh patch/diy-lede.sh
+      - name: 替换hnat配置文件
+        run: chmod +x patch/diy-hnat.sh && sh patch/diy-hnat.sh
+      - name: 升级feeds
+        run: cd openwrt && ./scripts/feeds update -a
+      - name: 安装feeds
+        run: cd openwrt && ./scripts/feeds install -a
+      - name: 修改luci源码
+        run: chmod +x patch/diy-luci.sh && sh patch/diy-luci.sh
+      - name: 生成config内核编译
         run: |
-          git clone https://github.com/coolsnowwolf/lede
-          mv ./lede/* ./
-      - name: 下载其他插件源码到package
-        run: |
-          git clone https://github.com/kjrzxu/package.git  package/package
-      - name: 升级安装feeds
-        run: |
-          ./scripts/feeds update -a
-          ./scripts/feeds install -a
-      - name: 配置config文件
-        run: |
-          cat >> .config <<EOF
-          # 机型设置:
-          CONFIG_TARGET_ramips=y
-          CONFIG_TARGET_ramips_mt7621=y
-          CONFIG_TARGET_ramips_mt7621_DEVICE_hiwifi_hc5962=y
-          # 插件:
-          CONFIG_PACKAGE_luci-app-cloudflared=y
-          EOF
+          cd openwrt
+          cp ../.config .config
           make defconfig
       - name: 下载软件包
         run: |
+          cd openwrt
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
       - name: 开始编译固件
         run: |
-          echo -e "$(nproc) thread build."
-          make package/package/luci-app-cloudflared/compile V=99
+          cd openwrt
+          make feeds/package/luci-app-cloudflared/compile V=99
       - name : 上传bin文件夹(固件+ipk)到 github actions
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_-package_luci
-          path: bin/
+          name: OpenWrt_LEDE_hnat
+          path: openwrt/bin
