@@ -107,3 +107,5 @@ sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luas
 sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
 sed -i 's/10/5/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
 sed -i 's/0/1/' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
+sed -i '/cloudflared.init/d' openwrt/feeds/packages/net/cloudflared/Makefile
+rm openwrt/feeds/packages/net/cloudflared/files/cloudflared.init
