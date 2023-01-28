@@ -99,9 +99,9 @@ sed -i 's/"网络存储"/"存储"/' openwrt/feeds/luci/applications/luci-app-vsf
 
 sed -i 's/"services"/"control"/g' openwrt/feeds/luci/applications/luci-app-wol/luasrc/controller/wol.lua
 
-sed -i 's/_("ZeroTier"), 99/_("ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
-sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
-sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
+#sed -i 's/_("ZeroTier"), 99/_("ZeroTier"), 120/' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+#sed -i 's/"vpn", "zerotier"/"services", "zerotier"/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/controller/zerotier.lua
+#sed -i 's/vpn/services/g' openwrt/feeds/luci/applications/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
 
 #修改配置文件
 sed -i 's#sda#/mnt/sda1#' openwrt/feeds/packages/utils/hd-idle/files/hd-idle.config
